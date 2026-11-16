@@ -1,0 +1,385 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-dark);
+    font-family: var(--font-body);
+}
+
+/* HEADER */
+
+.site-header {
+    width: 100%;
+    height: 90px;
+    padding: 0 var(--page-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.logo {
+    color: var(--color-dark);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--color-gold);
+}
+
+/* HAMBURGER MENU */
+
+.menu-toggle {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--color-gold);
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 12;
+}
+
+.menu-toggle span {
+    width: 17px;
+    height: 1.5px;
+    background: var(--color-dark);
+    transition: var(--transition);
+}
+
+.menu-toggle.active span:first-child {
+    transform: translateY(3.25px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:last-child {
+    transform: translateY(-3.25px) rotate(-45deg);
+}
+
+.navbar {
+    position: absolute;
+    top: 75px;
+    right: var(--page-padding);
+    width: 210px;
+    padding: 20px;
+    background: var(--color-paper);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition);
+}
+
+.navbar.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.navbar a {
+    color: var(--color-dark);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.navbar a:hover {
+    color: var(--color-gold);
+}
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 100vh;
+    padding: 125px var(--page-padding) 90px;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 7%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "V";
+    position: absolute;
+    right: 28%;
+    top: 8%;
+    font-family: var(--font-heading);
+    font-size: 450px;
+    color: rgba(182, 154, 88, 0.07);
+    pointer-events: none;
+}
+
+/* TEXT CONTENT */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: slideUp 1s ease both;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-muted);
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+}
+
+.line {
+    width: 35px;
+    height: 1px;
+    background: var(--color-gold);
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(55px, 7vw, 100px);
+    font-weight: normal;
+    line-height: 1.05;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: var(--color-gold);
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 390px;
+    margin-top: 28px;
+    color: var(--color-muted);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 38px;
+    padding: 16px 22px;
+    background: var(--color-dark);
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: var(--transition);
+}
+
+.hero-button span {
+    color: var(--color-gold-light);
+    font-size: 17px;
+}
+
+.hero-button:hover {
+    background: var(--color-gold);
+    transform: translateY(-4px);
+}
+
+.hero-note {
+    margin-top: 65px;
+    color: var(--color-muted);
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+/* PORTRAIT */
+
+.hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    justify-self: end;
+    animation: fadeIn 1.3s ease both;
+}
+
+.image-frame {
+    width: 100%;
+    height: min(65vh, 570px);
+    min-height: 380px;
+    padding: 12px;
+    border: 1px solid var(--color-gold-light);
+    position: relative;
+}
+
+.image-frame::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--color-gold);
+    z-index: -1;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: saturate(0.78);
+}
+
+.image-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 22px;
+    color: var(--color-muted);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.side-caption {
+    position: absolute;
+    right: -42px;
+    top: 50%;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%);
+    color: var(--color-gold);
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+/* BOTTOM DETAILS */
+
+.hero-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: var(--page-padding);
+    right: var(--page-padding);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--color-muted);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.scroll-line {
+    width: 55px;
+    height: 1px;
+    background: var(--color-gold);
+}
+
+/* ANIMATIONS */
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* MOBILE RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+    :root {
+        --page-padding: 7%;
+    }
+
+    .site-header {
+        height: 75px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 120px;
+        padding-bottom: 100px;
+        gap: 55px;
+    }
+
+    .hero h1 {
+        font-size: clamp(55px, 15vw, 80px);
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-note {
+        margin-top: 35px;
+    }
+
+    .hero-visual {
+        width: 85%;
+        justify-self: center;
+        margin-right: 10px;
+    }
+
+    .image-frame {
+        height: 430px;
+    }
+
+    .side-caption {
+        right: -28px;
+    }
+
+    .hero-bottom {
+        bottom: 25px;
+        font-size: 8px;
+    }
+
+    .hero::before {
+        font-size: 250px;
+        right: 5%;
+        top: 35%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}

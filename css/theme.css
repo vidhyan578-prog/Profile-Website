@@ -1,0 +1,16 @@
+
+
+:root {
+    --color-background: #C9CECD;
+    --color-paper: #E3E1D9;
+    --color-dark: #455761;
+    --color-muted: #78868A;
+    --color-gold: #A77F49;
+    --color-gold-light: #BBA47E;
+
+    --font-heading: Georgia, "Times New Roman", serif;
+    --font-body: Arial, Helvetica, sans-serif;
+
+    --page-padding: 7%;
+    --transition: 0.35s ease;
+}
