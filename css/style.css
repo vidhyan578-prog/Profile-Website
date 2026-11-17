@@ -4,16 +4,9 @@
 ============================== */
 
 .family-section {
-    --family-background: #f2e8dc;
-    --family-paper: #fffaf4;
-    --family-dark: #49382f;
-    --family-muted: #887568;
-    --family-gold: #b78355;
-    --family-light: #e4c6a5;
-
-    padding: 100px 8%;
-    background: var(--family-background);
-    color: var(--family-dark);
+    padding: var(--section-padding) 8%;
+    background: var(--color-background);
+    color: var(--color-dark);
 }
 
 /* HEADING */
@@ -25,21 +18,23 @@
 }
 
 .family-heading .section-label {
-    color: var(--family-gold);
+    color: var(--color-gold);
     letter-spacing: 3px;
-    font-size: 12px;
+    font-size: var(--font-xs);
     font-weight: 600;
 }
 
 .family-heading h2 {
-    font-size: 38px;
-    margin: 15px 0;
-    color: var(--family-dark);
+    font-family: var(--font-heading);
+    font-size: var(--font-xl);
+    margin: var(--heading-gap) 0;
+    color: var(--color-dark);
 }
 
 .family-heading p {
-    color: var(--family-muted);
-    font-size: 15px;
+    font-family: var(--font-body);
+    color: var(--color-muted);
+    font-size: var(--font-md);
     line-height: 1.8;
 }
 
@@ -51,8 +46,8 @@
     height: 190px;
     margin: 0 auto 55px;
     overflow: hidden;
-    border-radius: 5px;
-    background: var(--family-paper);
+    border-radius: var(--small-radius);
+    background: var(--color-paper);
 }
 
 .family-banner img {
@@ -72,7 +67,7 @@
     align-items: center;
     text-align: center;
     padding: 15px;
-    color: white;
+    color: var(--color-white);
     background: linear-gradient(
         transparent,
         rgba(35, 25, 20, 0.65)
@@ -80,12 +75,13 @@
 }
 
 .family-banner-caption span {
-    font-size: 11px;
+    font-size: var(--font-xs);
     letter-spacing: 3px;
 }
 
 .family-banner-caption h3 {
-    font-size: 22px;
+    font-family: var(--font-heading);
+    font-size: var(--font-lg);
     margin-top: 10px;
 }
 
@@ -94,7 +90,7 @@
 .family-members {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
+    gap: var(--content-gap);
 }
 
 .family-card {
@@ -111,7 +107,7 @@
 }
 
 .family-card:focus-visible {
-    outline: 3px solid var(--family-gold);
+    outline: 3px solid var(--color-gold);
     outline-offset: 5px;
 }
 
@@ -119,7 +115,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.7s ease;
+    transition: var(--card-transition);
     transform-style: preserve-3d;
 }
 
@@ -135,21 +131,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 25px 18px;
-    border: 1px solid var(--family-light);
-    border-radius: 6px;
-    background: var(--family-paper);
+    padding: var(--card-padding) 18px;
+    border: 1px solid var(--color-gold-light);
+    border-radius: var(--card-radius);
+    background: var(--color-paper);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
 
 .family-card-front {
-    box-shadow: 0 8px 25px rgba(73, 56, 47, 0.06);
+    box-shadow: var(--card-shadow);
 }
 
 .family-card-back {
     transform: rotateY(180deg);
-    background: #e8d5c2;
+    background: var(--color-paper);
 }
 
 /* SILHOUETTE PLACEHOLDER */
@@ -169,7 +165,7 @@
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    background: var(--family-gold);
+    background: var(--color-gold);
     margin-bottom: 8px;
 }
 
@@ -177,35 +173,72 @@
     width: 120px;
     height: 75px;
     border-radius: 65px 65px 0 0;
-    background: var(--family-light);
+    background: var(--color-gold-light);
 }
 
 /* CARD TEXT */
 
 .family-role {
-    font-size: 11px;
+    font-size: var(--font-xs);
     letter-spacing: 2px;
     font-weight: 600;
-    color: var(--family-gold);
+    color: var(--color-gold);
 }
 
 .family-card h3 {
-    font-size: 21px;
+    font-family: var(--font-heading);
+    font-size: var(--font-lg);
     margin: 12px 0;
-    color: var(--family-dark);
+    color: var(--color-dark);
 }
 
 .family-card-back p {
-    font-size: 13px;
+    font-size: var(--font-sm);
     line-height: 1.8;
-    color: var(--family-muted);
+    color: var(--color-muted);
     margin: 8px 0 15px;
 }
 
 .family-hint {
-    font-size: 11px;
-    color: var(--family-muted);
+    font-size: var(--font-xs);
+    color: var(--color-muted);
     margin-top: 12px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 950px) {
+    .family-members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .family-section {
+        padding: var(--section-padding-mobile) 6%;
+    }
+
+    .family-heading h2 {
+        font-size: 30px;
+    }
+
+    .family-banner {
+        height: 140px;
+        margin-bottom: 35px;
+    }
+
+    .family-banner-caption h3 {
+        font-size: 17px;
+    }
+
+    .family-members {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .family-card {
+        height: 310px;
+    }
 }
 
 /* RESPONSIVE DESIGN */
@@ -243,11 +276,6 @@
         height: 310px;
     }
 }
-
-
-
-
-
 
 /* =================================
    HOBBIES & PASSIONS
@@ -498,40 +526,6 @@
     }
 }
 
-@media (max-width: 600px) {
-    .hobbies-section {
-        padding: 70px 6%;
-    }
-
-    .hobbies-heading h2 {
-        font-size: 30px;
-    }
-
-    .hobbies-gallery {
-        columns: 1;
-    }
-
-    .hobby-card img,
-    .hobby-card:nth-child(n) img {
-        height: 300px;
-    }
-
-    .hobby-modal {
-        padding: 12px;
-    }
-
-    .modal-image-container img {
-        min-height: 220px;
-    }
-
-    .modal-details {
-        padding: 25px;
-    }
-
-    .modal-details h2 {
-        font-size: 25px;
-    }
-}
 
 
 * {
@@ -550,13 +544,12 @@ body {
     font-family: var(--font-body);
 }
 
-
 /* =========================================
    PROFESSIONAL JOURNEY SECTION
 ========================================= */
 
 .journey-section {
-    background: var(--color-paper);
+    background: var(--color-background);
     padding: 110px var(--page-padding);
     position: relative;
 }
@@ -794,19 +787,12 @@ body {
     }
 
     .journey-heading .section-label {
-    color: var(--color-gold);
-    font-size: 10px;
-    letter-spacing: 3px;
-    font-weight: bold;
+        color: var(--color-gold);
+        font-size: 10px;
+        letter-spacing: 3px;
+        font-weight: bold;
+    }
 }
-}
-
-
-
-
-
-
-
 
 /* HEADER */
 
