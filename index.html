@@ -271,7 +271,119 @@
         
     </div>
 </section>
+<!-- HOBBIES & PASSIONS SECTION -->
 
+<section class="hobbies-section" id="hobbies">
+
+    <div class="hobbies-heading">
+        <span class="section-label">BEYOND THE EVERYDAY</span>
+        <h2>Hobbies & Passions</h2>
+        <p>
+            A little glimpse into the things I love,
+            the moments I capture and the creativity I enjoy.
+        </p>
+    </div>
+
+    <div class="hobbies-gallery">
+
+        <!-- PHOTOGRAPHY -->
+        <button class="hobby-card" type="button"
+            data-title="Photography"
+            data-description="Photography allows me to capture beautiful moments, explore different perspectives and notice the little details around me. I enjoy turning ordinary moments into memories.">
+
+            <img src="images/hobbiess/photography/image.png"
+                 alt="Photography">
+
+            <span class="hobby-card-overlay">
+                <span class="hobby-category">01 / CAPTURE</span>
+                <span class="hobby-title">Photography</span>
+                <span class="hobby-view">Explore hobby ↗</span>
+            </span>
+        </button>
+
+      
+        <!-- DANCING -->
+        <button class="hobby-card" type="button"
+            data-title="Dancing"
+            data-description="Dancing is a way for me to express myself through movement and music. It brings me joy, energy and confidence.">
+
+            <img src="images/hobbiess/dancing/image.png"
+                 alt="Dancing">
+
+            <span class="hobby-card-overlay">
+                <span class="hobby-category">02 / EXPRESSION</span>
+                <span class="hobby-title">Dancing</span>
+                <span class="hobby-view">Explore hobby ↗</span>
+            </span>
+        </button>
+
+       
+
+        <!-- DOT ART -->
+        <button class="hobby-card" type="button"
+            data-title="Dot Art"
+            data-description="Dot art gives me a creative space to experiment with patterns, colours and details. I enjoy the patience and concentration involved in creating each design.">
+
+            <img src="images/hobbiess/dot-art/image.png"
+                 alt="Dot art creation">
+
+            <span class="hobby-card-overlay">
+                <span class="hobby-category">03 / CREATIVITY</span>
+                <span class="hobby-title">Dot Art</span>
+                <span class="hobby-view">Explore hobby ↗</span>
+            </span>
+        </button>
+
+      
+
+        <!-- TRAVELLING -->
+        <button class="hobby-card" type="button"
+            data-title="Travelling"
+            data-description="Travelling gives me the opportunity to explore new places, experience different surroundings and create unforgettable memories.">
+
+            <img src="images/hobbiess/travelling/image.png"
+                 alt="Travel destination">
+
+            <span class="hobby-card-overlay">
+                <span class="hobby-category">04 / DISCOVERY</span>
+                <span class="hobby-title">Travelling</span>
+                <span class="hobby-view">Explore hobby ↗</span>
+            </span>
+        </button>
+
+        
+
+    </div>
+</section>
+
+
+<!-- HOBBY LIGHTBOX / MODAL -->
+
+<div class="hobby-modal" id="hobbyModal"
+     aria-hidden="true">
+
+    <div class="hobby-modal-content"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalHobbyTitle">
+
+        <button class="modal-close" id="modalClose"
+                type="button" aria-label="Close modal">
+            &times;
+        </button>
+
+        <div class="modal-image-container">
+            <img src="" alt="" id="modalImage">
+        </div>
+
+        <div class="modal-details">
+            <span class="section-label">A PART OF ME</span>
+            <h2 id="modalHobbyTitle"></h2>
+            <p id="modalHobbyDescription"></p>
+        </div>
+
+    </div>
+</div>
     </main>
 
     <script src="js/main.js"></script>
