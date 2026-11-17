@@ -48,7 +48,7 @@ jobs:
     needs:
       - check-html-title
       - check-image-alt
-      - check-console-log
+      - check-consolgite-log
     steps:
       - name: All checks passed
         run: echo "All pull request checks passed!"
