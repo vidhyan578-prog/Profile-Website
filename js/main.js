@@ -143,3 +143,23 @@ document.addEventListener("keydown", (event) => {
     }
 
 });
+
+
+
+/* ==============================
+   FAMILY CARD FLIP
+============================== */
+
+const familySectionCards = document.querySelectorAll(".family-card");
+
+familySectionCards.forEach((card) => {
+
+    card.addEventListener("click", () => {
+
+        const isFlipped = card.classList.toggle("is-flipped");
+
+        card.setAttribute("aria-pressed", isFlipped);
+
+    });
+
+});
