@@ -6,7 +6,37 @@ menuToggle.addEventListener("click", function () {
     navbar.classList.toggle("show");
 });
 
-// Professional Journey - Scroll Reveal
+
+/* =====================================
+   PROFESSIONAL JOURNEY
+===================================== */
+
+// SHOW MORE / SHOW LESS
+
+const journeyToggleButtons = document.querySelectorAll(".journey-toggle");
+
+journeyToggleButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        const description = button.previousElementSibling;
+
+        const isExpanded = description.classList.toggle("expanded");
+
+        button.textContent = isExpanded ? "Show Less −" : "Show More +";
+
+        button.setAttribute("aria-expanded", isExpanded);
+
+    });
+
+});
+
+
+
+
+
+
+// SCROLL-TRIGGERED ANIMATION
 
 const journeyItems = document.querySelectorAll(".journey-item");
 
@@ -19,6 +49,7 @@ const journeyObserver = new IntersectionObserver((entries) => {
             entry.target.classList.add("journey-visible");
 
             journeyObserver.unobserve(entry.target);
+
         }
 
     });
@@ -28,5 +59,7 @@ const journeyObserver = new IntersectionObserver((entries) => {
 });
 
 journeyItems.forEach((item) => {
+
     journeyObserver.observe(item);
+
 });
