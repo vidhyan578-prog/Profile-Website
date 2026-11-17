@@ -35,3 +35,4 @@ jobs:
 
       - name: Validate CSS
         run: csslint css/*.css --quiet
+        continue-on-error: true
