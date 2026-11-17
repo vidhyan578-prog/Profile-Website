@@ -1,0 +1,54 @@
+
+name: Pull Request Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-html-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check HTML title
+        run: |
+          grep -q '<title>.*</title>' index.html
+
+  check-image-alt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check image alt attributes
+        run: |
+          if grep -n '<img' index.html | grep -v 'alt='; then
+            echo "Image missing alt attribute"
+            exit 1
+          fi
+
+  check-console-log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for console.log
+        run: |
+          if grep -rn 'console.log' js/*.js; then
+            echo "console.log found in JavaScript"
+            exit 1
+          fi
+
+  all-checks-passed:
+    runs-on: ubuntu-latest
+    needs:
+      - check-html-title
+      - check-image-alt
+      - check-console-log
+    steps:
+      - name: All checks passed
+        run: echo "All pull request checks passed!"
