@@ -1,13 +1,12 @@
 :root {
-
     /* GLOBAL THEME COLORS */
 
-    --color-background: #1a1a2e;
-    --color-paper: #16213e;
-    --color-dark: #e0e0e0;
-    --color-muted: #a0a0a0;
-    --color-gold: #1abc9c;
-    --color-gold-light: #48d1cc;
+    --color-background: #eaf2f8;
+    --color-paper: #d6eaf8;
+    --color-dark: #154360;
+    --color-muted: #5d6d7e;
+    --color-gold: #2874a6;
+    --color-gold-light: #5dade2;
     --color-white: #ffffff;
 
     /* GLOBAL FONTS */
