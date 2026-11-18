@@ -1,24 +1,23 @@
 
-name: Lighthouse Performance Audit
+name: Lighthouse Audit
 
 on:
   workflow_run:
     workflows: ["Deploy to GitHub Pages"]
-    types:
-      - completed
+    types: [completed]
+
   schedule:
     - cron: '0 9 * * 1'
 
 jobs:
-  lighthouse:
-    if: github.event_name == 'schedule' || github.event.workflow_run.conclusion == 'success'
+  audit:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'schedule' || github.event.workflow_run.conclusion == 'success' }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Run Lighthouse CI
+      - name: Run Lighthouse
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
@@ -26,9 +25,9 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
 
-      - name: Upload Lighthouse report
+      - name: Upload Lighthouse Report
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-report
-          path: .lighthouseci/
+          path: '.lighthouseci/'
           retention-days: 30
