@@ -143,7 +143,17 @@ document.addEventListener("keydown", (event) => {
     }
 
 });
+// BACK TO TOP BUTTON
+const backToTopButton = document.getElementById("back-to-top");
 
+if (backToTopButton) {
+    backToTopButton.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
 
 
 /* ==============================
