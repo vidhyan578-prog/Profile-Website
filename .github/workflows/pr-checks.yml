@@ -49,9 +49,12 @@ jobs:
           fi
           echo "No console.log found"
 
-  all-checks-passed:
+    all-checks-passed:
     runs-on: ubuntu-latest
-    needs: [check-html-titles, check-image-alt, check-no-console-log]
+    needs:
+      - check-html-titles
+      - check-image-alt
+      - check-no-console-log
     steps:
       - name: All checks passed
         run: echo "All PR checks passed! Ready for review."
