@@ -48,8 +48,7 @@ jobs:
             exit 1
           fi
           echo "No console.log found"
-
-    all-checks-passed:
+  all-checks-passed:
     runs-on: ubuntu-latest
     needs:
       - check-html-titles
@@ -58,3 +57,4 @@ jobs:
     steps:
       - name: All checks passed
         run: echo "All PR checks passed! Ready for review."
+        
